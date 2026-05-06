@@ -1,0 +1,14 @@
+.title {
+  font-size: var(--title-size);
+  font-weight: bold;
+  color: var(--secondary-color);
+  line-height: 110%;
+}
+
+.title.title--color-light {
+  color: #fff;
+}
+
+.title.title--align-center {
+  text-align: center;
+}

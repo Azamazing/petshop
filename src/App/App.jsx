@@ -1,0 +1,32 @@
+import Header from "../shared/layouts/Header/Header";
+import MainLayout from "../shared/layouts/MainLayout/MainLayout";
+import Navigation from "./Navigation";
+import Footer from "../shared/layouts/Footer/Footer";
+import BackToTopButton from "../shared/components/BackToTopButton/BackToTopButton";
+
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchCategories } from "../redux/categories/categories-thunks";
+
+import styles from "./App.module.css";
+function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //При первом рендере грузим списко категорий с бека
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+  return (
+    <div className={styles["app"]}>
+      <Header />
+      <MainLayout>
+        <Navigation />
+      </MainLayout>
+      <Footer />
+      <BackToTopButton position="BottomRight" />
+    </div>
+  );
+}
+
+export default App;
